@@ -1,11 +1,17 @@
 // RegisterScreen.js
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNetInfo } from "@react-native-community/netinfo";
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+import {useNetInfo} from '@react-native-community/netinfo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome icons
 
-const RegisterScreen = ({ navigation }) => {
-    const netInfo = useNetInfo();
+const RegisterScreen = ({navigation}) => {
+  const netInfo = useNetInfo();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -15,14 +21,14 @@ const RegisterScreen = ({ navigation }) => {
 
   const handleRegister = () => {
     if (!netInfo.isConnected) {
-        Alert.alert(
-          'No Internet Connection',
-          'Please connect to the internet to proceed.',
-          [{ text: 'OK' }],
-          { cancelable: false }
-        );
-        return;
-      }
+      Alert.alert(
+        'No Internet Connection',
+        'Please connect to the internet to proceed.',
+        [{text: 'OK'}],
+        {cancelable: false},
+      );
+      return;
+    }
     // Implement your registration logic here
     // For example, you can validate the inputs and register the user
     // Navigate to the HomeScreen upon successful registration
@@ -126,13 +132,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     marginBottom: 15,
-    color : '#000'  
+    color: '#000',
   },
   input: {
     flex: 1,
     marginLeft: 10,
     fontSize: 16,
-    color : '#000'
+    color: '#000',
   },
   button: {
     backgroundColor: '#007BFF',
